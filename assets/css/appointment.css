@@ -1,0 +1,163 @@
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2100&q=80') no-repeat center center fixed;
+            background-size: cover;
+            
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+        h3 {
+            color: #D4AF37;
+        }
+        
+        .container {
+            max-width: 1200px;
+        }
+        
+        .card {
+            border-radius: 15px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            font-weight: 600;
+            border-bottom: none;
+            padding: 20px;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .appointment-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .info-item {
+            text-align: center;
+            padding: 20px 15px;
+            transition: all 0.3s;
+        }
+        
+        .info-item:hover {
+            background: rgba(106, 17, 203, 0.1);
+            border-radius: 10px;
+        }
+        
+        .info-item i {
+            font-size: 2.2rem;
+            color: #6a11cb;
+            margin-bottom: 15px;
+        }
+        
+        .info-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .info-item p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        
+        .form-control, .form-select {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 0 0.25rem rgba(106, 17, 203, 0.15);
+        }
+        
+        .btn-primary {
+            background: #D4AF37;;
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        /* .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        } */
+        
+        .required-label:after {
+            content: " *";
+            color: #dc3545;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .error-message {
+            display: none;
+            color: #dc3545;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .sent-message {
+            display: none;
+            color: #28a745;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .card {
+                margin-bottom: 15px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .appointment-card {
+                padding: 20px;
+            }
+        }
+    
