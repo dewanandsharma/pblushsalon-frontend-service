@@ -136,33 +136,15 @@
           </div>
           <!-- action="forms/contact.php" -->
           <div class="col-lg-6">
-            <form id="contactinfo" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
-              <div class="row gy-4">
 
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Enter Your Name" required>
-                </div>
+         <form id="contactinfo">
+  <input type="text" id="name" placeholder="Enter Your Name"  required><br>
+  <input type="email" id="email" placeholder="Enter Your Email" required><br>
+  <input type="text" id="mobile" placeholder="Enter 10-digit mobile number" required><br>
+  <textarea id="message" placeholder="Enter Message" required></textarea><br>
+  <button type="submit">Send Message</button>
+</form>
 
-                <div class="col-md-6">
-                  <input type="email" name="email" class="form-control" placeholder="Enter Your Email" required>
-                </div>
-
-                <div class="col-md-12">
-                  <input type="mobile" name="mobile" class="form-control" placeholder="Enter 10-digit mobile number"
-                    required>
-                </div>
-
-                <div class="col-md-12">
-                  <textarea name="message" class="form-control" rows="2" placeholder="Enter Message"
-                    required></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <button type="submit" class="btn btn-warning" style="color: white;">Send Message</button>
-                </div>
-
-              </div>
-            </form>
 
           </div><!-- End Contact Form -->
 
@@ -208,7 +190,7 @@
             <li><a href="#">About us</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Gallery</a></li>
-           
+
           </ul>
         </div>
 
@@ -219,7 +201,7 @@
             <li><a href="#">Bridal & Event Makeup</a></li>
             <li><a href="#">Skin & Nail Care</a></li>
             <li><a href="#">Personalized Consultations</a></li>
-            
+
           </ul>
         </div>
 
@@ -247,7 +229,7 @@
 
   </footer>
 
-   
+
   <a href="tel:+918591865405" id="call-icon" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-telephone"></i></i></a>
 
@@ -272,7 +254,75 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/whatsapp.js"></script>
-  <script src="assets/js/contact.js"></script>
+  <!-- <script src="assets/js/contact.js"></script> -->
+
+  <!-- node.js API hit -->
+  <!-- <script>
+    document.getElementById("contactinfo").addEventListener("submit", async function (e) {
+      e.preventDefault(); // prevent page reload
+
+      const form = e.target;
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        mobile: form.mobile.value,
+        message: form.message.value
+      };
+
+      try {
+        const response = await fetch("http://localhost:5000/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alert("Message sent successfully!");
+          form.reset();
+        } else {
+          alert("Error: " + result.message);
+        }
+      } catch (err) {
+        console.error("Request failed:", err);
+        alert("Something went wrong!");
+      }
+    });
+  </script> -->
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("_iYWhXu_pXCMyO0bo"); // 🔹 Replace with your actual Public Key
+  })();
+
+  document.getElementById('contactinfo').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mobile = document.getElementById('mobile').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!/^\d{10}$/.test(mobile)) {
+      alert('Please enter a valid 10-digit mobile number.');
+      return;
+    }
+
+    emailjs.send("service_gwuu7bw", "template_asmoqge", {
+      name: name,
+      email: email,
+      mobile: mobile,
+      message: message
+    }).then(function() {
+      alert('✅ Message sent successfully!');
+      document.getElementById('contactinfo').reset();
+    }, function(error) {
+      alert('❌ Failed to send: ' + JSON.stringify(error));
+    });
+  });
+</script>
 
 </body>
 
